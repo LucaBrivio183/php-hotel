@@ -36,7 +36,7 @@ $hotels = [
         'distance_to_center' => 50
     ],
 ];
-
+$check_parking = $_GET['parking'];
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,17 @@ $hotels = [
     <title>PHP Hotel</title>
 </head>
 
-<body class="vh-100 d-flex align-items-center">
+<body class="vh-100 d-flex flex-column justify-content-center">
+    <!-- form -->
+    <form class="container text-center w-50 p-5" action="index.php" method="get">
+        <select class="form-select w-50 d-inline">
+            <option value="1">--</option>
+            <option value="2">Parcheggio Presente</option>
+            <option value="3">Parcheggio Assente</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Cerca</button>
+    </form>
+    <!-- table -->
     <table class="table table-hover table-bordered container text-center">
         <thead>
             <tr class="table-secondary">
@@ -64,11 +74,12 @@ $hotels = [
         </thead>
         <tbody>
             <?php foreach ($hotels as $key => $hotel) { ?>
-                <td scope="col"><?php echo $hotel['name'] ?></td>
-                <td scope="col"><?php echo $hotel['description'] ?></td>
-                <td scope="col"><?php echo $hotel['parking'] ? 'Presente' : 'Assente' ?></td>
-                <td scope="col"><?php echo $hotel['vote'] ?></td>
-                <td scope="col"><?php echo $hotel['distance_to_center'] ?> Km</td>
+                <tr>
+                    <td scope="col"><?php echo $hotel['name'] ?></td>
+                    <td scope="col"><?php echo $hotel['description'] ?></td>
+                    <td scope="col"><?php echo $hotel['parking'] ? 'Presente' : 'Assente' ?></td>
+                    <td scope="col"><?php echo $hotel['vote'] ?></td>
+                    <td scope="col"><?php echo $hotel['distance_to_center'] ?> Km</td>
                 </tr>
             <?php } ?>
         </tbody>
