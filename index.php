@@ -52,6 +52,17 @@ $hotels = [
 </head>
 
 <body>
+    <?php foreach ($hotels as $hotel) { ?>
+        <div class="hotel">
+            <h2><b><?php echo $hotel['name'] ?></b></h2>
+
+            <h5><?php echo $hotel['description'] ?></h5>
+            <p><b>Parcheggio:</b> <?php echo $hotel['parking'] ? 'Sì' : 'No' ?></p>
+            <p><b>Voto:</b> <?php echo $hotel['vote'] ?></p>
+            <p><b>Distanza dal centro:</b> <?php echo $hotel['distance_to_center'] ?> km</p>
+
+        </div>
+    <?php } ?>
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
