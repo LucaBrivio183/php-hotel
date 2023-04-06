@@ -51,18 +51,28 @@ $hotels = [
     <title>PHP Hotel</title>
 </head>
 
-<body>
-    <?php foreach ($hotels as $hotel) { ?>
-        <div class="hotel">
-            <h2><b><?php echo $hotel['name'] ?></b></h2>
-
-            <h5><?php echo $hotel['description'] ?></h5>
-            <p><b>Parcheggio:</b> <?php echo $hotel['parking'] ? 'Sì' : 'No' ?></p>
-            <p><b>Voto:</b> <?php echo $hotel['vote'] ?></p>
-            <p><b>Distanza dal centro:</b> <?php echo $hotel['distance_to_center'] ?> km</p>
-
-        </div>
-    <?php } ?>
+<body class="vh-100 d-flex align-items-center">
+    <table class="table table-hover table-bordered container text-center">
+        <thead>
+            <tr class="table-secondary">
+                <th scope="col">Nome:</th>
+                <th scope="col">Descrizione:</th>
+                <th scope="col">Parcheggio:</th>
+                <th scope="col">Voto:</th>
+                <th scope="col">Dal centro:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($hotels as $key => $hotel) { ?>
+                <td scope="col"><?php echo $hotel['name'] ?></td>
+                <td scope="col"><?php echo $hotel['description'] ?></td>
+                <td scope="col"><?php echo $hotel['parking'] ? 'Presente' : 'Assente' ?></td>
+                <td scope="col"><?php echo $hotel['vote'] ?></td>
+                <td scope="col"><?php echo $hotel['distance_to_center'] ?> Km</td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
     <!-- bootstrap script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
