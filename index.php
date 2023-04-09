@@ -54,10 +54,9 @@ $check_parking = $_GET['parking'];
 <body class="vh-100 d-flex flex-column justify-content-center">
     <!-- form -->
     <form class="container text-center w-50 p-5" action="index.php" method="get">
-        <select class="form-select w-50 d-inline">
-            <option value="1">--</option>
-            <option value="2">Parcheggio Presente</option>
-            <option value="3">Parcheggio Assente</option>
+        <select class="form-select w-50 d-inline" name="parking">
+            <option value="1">Parcheggio Presente</option>
+            <option value="0">Parcheggio Assente</option>
         </select>
         <button type="submit" class="btn btn-primary">Cerca</button>
     </form>
@@ -74,7 +73,7 @@ $check_parking = $_GET['parking'];
         </thead>
         <tbody>
             <?php foreach ($hotels as $key => $hotel) { ?>
-                <tr>
+                <tr class="<?= ($hotel['parking'] == $check_parking) ? '' : 'd-none' ?>">
                     <td scope="col"><?php echo $hotel['name'] ?></td>
                     <td scope="col"><?php echo $hotel['description'] ?></td>
                     <td scope="col"><?php echo $hotel['parking'] ? 'Presente' : 'Assente' ?></td>
